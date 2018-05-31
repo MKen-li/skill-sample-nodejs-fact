@@ -19,4 +19,4 @@ script:
  - codecov
 cache:
   directories:
-  - node_modules
+  - lambda/custom/node_modules
