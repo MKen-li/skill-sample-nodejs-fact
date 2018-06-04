@@ -4,10 +4,14 @@
 #   _\ \/  '_// / / /   / / / -_|_-</ __/ / _ \/ _ `/
 #  /___/_/\_\/_/_/_/   /_/  \__/___/\__/_/_//_/\_, /
 #                                             /___/
-# Test type: Unit/Functional/End-to-End/Regression
+#
+# Created by Bespoken
+# Learn more at https://read.bespoken.io/unit-testing/getting-started/
+#
 # Skill name: "Space Facts" by Amazon
 # Test scope: LaunchRequest, GetNewFactIntent, AMAZON.HelpIntent, AMAZON.StopIntent, AMAZON.CancelIntent,
 #             AMAZON.FallbackIntent
+# Description: General test suite for all intents
 #=====================================================================================================================
 
 ---
