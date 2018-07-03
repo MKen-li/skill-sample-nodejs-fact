@@ -1,0 +1,45 @@
+#=====================================================================================================================
+#     ______    _ ____  ______        __  _
+#    / __/ /__ (_) / / /_  __/__ ___ / /_(_)__  ___ _
+#   _\ \/  '_// / / /   / / / -_|_-</ __/ / _ \/ _ `/
+#  /___/_/\_\/_/_/_/   /_/  \__/___/\__/_/_//_/\_, /
+#                                             /___/
+#
+# Created by Bespoken
+# Learn more at https://read.bespoken.io/unit-testing/getting-started/
+#
+# Skill name: "Space Facts" by Amazon
+# Test scope: LaunchRequest, GetNewFactIntent, AMAZON.HelpIntent, AMAZON.StopIntent, AMAZON.CancelIntent,
+#             AMAZON.FallbackIntent
+# Description: General test suite for all intents
+#=====================================================================================================================
+
+---
+configuration:
+  locales: en-US
+
+---
+- test: Launch request, no further interaction.
+- LaunchRequest:
+  - response.outputSpeech.ssml: Here's your fact * # LaunchRequest is not an utterance but a request type and reserved word
+  - response.card.type: Simple
+  - response.card.title: Space Facts
+  - response.card.content: * # Any text will match here
+
+---
+- test: Ask for help and then for a fact (sequence of interactions).
+- LaunchRequest # Empty expected part means we are not testing the response
+- AMAZON.HelpIntent:
+  - response.outputSpeech.ssml: You can say tell me a space fact, or, you can say exit... What can I help you with?
+  - response.reprompt.outputSpeech.ssml: What can I help you with?
+  - response.card: undefined
+- GetNewFactIntent:
+  - response.outputSpeech.ssml: Here's your fact *
+  - response.card.type: Simple
+  - response.card.title: Space Facts
+  - response.card.content: *
+
+---
+- test: Stop intent
+- LaunchRequest
+- AMAZON.StopIntent: Goodbye!
