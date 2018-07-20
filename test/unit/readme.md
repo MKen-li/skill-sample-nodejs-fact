@@ -21,6 +21,7 @@ To get started, you need to install Bespoken Tools, please follow the next steps
      
      The yml extension indicates this is a YAML file, which is the syntax we use to create test scripts; `test` means that is a unit test script file. A test script looks like this:
         ```YAML
+        
         ---
         configuration:
           locale: en-US
