@@ -20,20 +20,19 @@ To get started, you need to install Bespoken Tools, please follow the next steps
      * If you want to create more than one test script: `functionalityName.test.yml`. 
      
      The yml extension indicates this is a YAML file, which is the syntax we use to create test scripts; `test` means that is a unit test script file. A test script looks like this:
-        ```YAML
-        
-        ---
-        configuration:
-          locale: en-US
-    
-        --- # Three dashes start a new YAML document
-        - test: Launch request, no further interaction. # Some metadata about this test sequence
-        - LaunchRequest: # LaunchRequest is not an utterance but a request type and reserved word
-          - response.outputSpeech.ssml: Here's your fact
-          - response.card.type: Simple
-          - response.card.title: Space Facts
-          - response.card.content: "*" # Any text will match
-        ```
+    ```YAML
+    ---
+    configuration: # Here you define your locales and mocks
+        locale: en-US
+
+    --- # Three dashes start a new YAML document
+    - test: Launch request, no further interaction. # Some metadata about this test sequence
+    - LaunchRequest: # LaunchRequest is not an utterance but a request type and reserved word
+        - response.outputSpeech.ssml: Here's your fact
+        - response.card.type: Simple
+        - response.card.title: Space Facts
+        - response.card.content: "*" # Any text will match
+    ```
     A typical YAML sentence is composed of 2 parts separated by a colon; in the left part we have the intent name we want to test; in the right part we have the expected result. You can also access any element on the JSON response object like the session attributes.
 6. To execute the scripts go to the root of your project and run `bst test`. That will find and run all the unit test scripts files.
 
