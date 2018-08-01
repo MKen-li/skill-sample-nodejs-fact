@@ -21,10 +21,10 @@ configuration:
 ---
 - test: Launch request, no further interaction.
 - LaunchRequest:
-  - response.outputSpeech.ssml: Here's your fact * # LaunchRequest is not an utterance but a request type and reserved word
+  - response.outputSpeech.ssml: Here's your fact # LaunchRequest is not an utterance but a request type and reserved word
   - response.card.type: Simple
   - response.card.title: Space Facts
-  - response.card.content: * # Any text will match here
+  - response.card.content: "*" # Any text will match here
 
 ---
 - test: Ask for help and then for a fact (sequence of interactions).
@@ -34,10 +34,10 @@ configuration:
   - response.reprompt.outputSpeech.ssml: What can I help you with?
   - response.card: undefined
 - GetNewFactIntent:
-  - response.outputSpeech.ssml: Here's your fact *
+  - response.outputSpeech.ssml: Here's your fact
   - response.card.type: Simple
   - response.card.title: Space Facts
-  - response.card.content: *
+  - response.card.content: "*"
 
 ---
 - test: Stop intent

@@ -16,7 +16,7 @@
 
 ---
 configuration:
-  locales: en-GB, en-US, en-AU, en-IN, en-CA
+  locales: en-GB #, en-US, en-AU, en-IN, en-CA
 
 ---
 - test: Launch request, no further interaction.
@@ -50,7 +50,7 @@ configuration:
   - response.outputSpeech.ssml: heresIsAFact
   - response.card.title: cardTitle
   - response.card.type: Simple
-  - response.card.content: *
+  - response.card.content: "*"
 
 ---
 - test: Stop intent

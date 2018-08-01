@@ -1,5 +1,5 @@
 {
-  "handler": "lambda/custom/index.js",
+  "handler": "../../lambda/custom/index.js",
   "trace": false,
   "jest": {
     "silent": true,
